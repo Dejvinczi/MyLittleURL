@@ -1,0 +1,6 @@
+psycopg2==2.9.6
+django==4.2.1
+djangorestframework==3.14.0
+django_filter==23.2
+drf-yasg==1.21.7
+PyJWT==2.8.0

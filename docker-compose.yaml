@@ -1,0 +1,41 @@
+version: "3.8"
+
+# NETWORKS
+networks:
+  network_1:
+    driver: bridge
+
+# SERVICES
+services:
+  # DATABASE
+  db:
+    build: ./db
+    env_file:
+      - ./db/.env
+    ports:
+      - "5434:5434"
+    networks:
+      - network_1
+    volumes:
+      - ./db:/db
+      - db_data:/var/lib/postgresql/data/
+
+  # BACKEND
+  api:
+    build: ./api
+    env_file:
+      - ./api/.env
+    ports: 
+      - "8000:8000"
+      - "5678:5678"
+    networks:
+      - network_1
+    depends_on:
+      - db
+    volumes:
+      - ./api:/api
+    command: bash -c ./start.sh
+    
+# VOLUMES
+volumes:
+  db_data:
