@@ -3,3 +3,4 @@
 
 # Python
 /api/*/__pycache__/
+/api/*/migrations/
