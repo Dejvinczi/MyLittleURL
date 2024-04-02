@@ -1,4 +1,4 @@
-# Recipe
+# MyLittleUrl
 
 REST application for shortening long urls. The idea for the app was https://tinyurl.com/app
 
